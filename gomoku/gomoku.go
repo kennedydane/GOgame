@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"gitlab.com/kennedy.dane/GoMoku.git/game"
+	"github.com/kennedydane/GOgame/game"
 )
 
 type goMoku struct {
