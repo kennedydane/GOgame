@@ -33,11 +33,6 @@ type goMokuMove struct {
 }
 
 func columnHeaderString(columns int) string {
-	/*var buf bytes.Buffer
-	for col := 0; col < columns; col++ {
-		buf.WriteString(string('A'+col) + " ")
-	}
-	return buf.String()*/
 	cols := make([]string, columns)
 	for i := 0; i < columns; i++ {
 		cols[i] = string('A' + i)
@@ -65,13 +60,17 @@ func (gomoku *goMoku) String() string {
 
 	for row := 0; row < gomoku.rows; row++ {
 		if row == 0 {
+			buffer.WriteString("   ")
 			buffer.WriteString(columnHeaderString(gomoku.columns))
 			buffer.WriteString("\n")
 		}
+		buffer.WriteString(fmt.Sprintf("%2d ", row+1))
 		buffer.WriteString(gomokuBoardRowString(gomoku.theBoard[row]))
+		buffer.WriteString(fmt.Sprintf(" %d", row+1))
 
 		buffer.WriteString("\n")
 		if row == gomoku.rows-1 {
+			buffer.WriteString("   ")
 			buffer.WriteString(columnHeaderString(gomoku.columns))
 			buffer.WriteString("\n")
 		}
