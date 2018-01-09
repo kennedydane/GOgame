@@ -15,7 +15,9 @@ func main() {
 	fmt.Println(theGame)
 	ok := theGame.Move(1)
 	fmt.Println("!!!!", ok)
-	someMove := gomoku.Move{row: 1, column: 10}
+	var dummy gomoku.Move
+	someMove := &dummy
+	dummy.New(1, 10)
 	ok = theGame.Move(someMove)
 	fmt.Println("!!!!", ok)
 	fmt.Println(string('A' + 1))

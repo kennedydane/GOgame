@@ -9,6 +9,7 @@ import (
 // Game struct is for storing all the game-state information we need
 type Game struct {
 	theBoard             [][]int
+	moves                []Move
 	rows, columns        int
 	playerOne, playerTwo *Player
 }
@@ -76,15 +77,11 @@ func (gomoku *Game) New(rows, columns int, playerOne, playerTwo *Player) {
 	fmt.Println(cap(gomoku.theBoard), len(gomoku.theBoard))
 	gomoku.playerOne = playerOne
 	gomoku.playerTwo = playerOne
+	gomoku.moves = make([]Move, 0, 10)
 }
 
 // Move method to add a new move to the game state
-func (gomoku *Game) Move(move interface{}) error {
-	theMove, ok := move.(Move)
-	fmt.Println("---", theMove)
-	if !ok {
-		return Error{1}
-	}
+func (gomoku *Game) Move(move *Move) error {
 	return nil
 }
 
