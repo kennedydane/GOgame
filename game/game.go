@@ -8,9 +8,14 @@ type Player struct {
 	Email     string
 }
 
+// Move for describing/creating moves in a game
+type Move interface {
+	String() string
+}
+
 // Game is a generic interface for games
 type Game interface {
 	String() string
-	Move(move interface{}) error
+	Move(move Move) error
 	MoveList() interface{}
 }
